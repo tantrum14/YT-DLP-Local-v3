@@ -34,7 +34,22 @@
                         <label for="url">Video URL:</label>
                         <input type="url" id="url" name="url" placeholder="Paste video URL here (YouTube, Vimeo, etc.)" required>
                     </div>
-                    <button type="submit" class="download-btn">Download Video</button>
+                    
+                    <div class="form-group">
+                        <label for="download_type">Download Type:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" id="video" name="download_type" value="video" checked>
+                                <span class="radio-text">Video (default)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="audio" name="download_type" value="audio">
+                                <span class="radio-text">Audio (MP3)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="download-btn">Download</button>
                 </form>
             </div>
             
