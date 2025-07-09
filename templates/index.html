@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT-DLP Local Web UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YT-DLP Local Web UI</h1>
+            <p>Download videos from YouTube and many other sites</p>
+        </header>
+        
+        <!-- Flash Messages -->
+        <div class="flash-messages">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message flash-{{ category }}">
+                            <span class="message-icon">{% if category == 'error' %}❌{% else %}✅{% endif %}</span>
+                            <span class="message-text">{{ message }}</span>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        
+        <main>
+            <div class="download-form">
+                <form method="POST" action="{{ url_for('index') }}">
+                    <div class="form-group">
+                        <label for="url">Video URL:</label>
+                        <input type="url" id="url" name="url" placeholder="Paste video URL here (YouTube, Vimeo, etc.)" required>
+                    </div>
+                    <button type="submit" class="download-btn">Download Video</button>
+                </form>
+            </div>
+            
+            <div class="info-section">
+                <h2>Supported Sites</h2>
+                <p>This application supports over 1000 video sites including:</p>
+                <ul class="supported-sites">
+                    <li>YouTube</li>
+                    <li>Vimeo</li>
+                    <li>Twitter/X</li>
+                    <li>TikTok</li>
+                    <li>Instagram</li>
+                    <li>And many more...</li>
+                </ul>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Created with Comet Assistant</p>
+        </footer>
+    </div>
+</body>
+</html>
